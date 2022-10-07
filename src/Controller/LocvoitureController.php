@@ -83,21 +83,33 @@ class LocvoitureController extends AbstractController
         }
         
 
-    #[Route("/admin/commande/new", name:"admin_new_commande")]
-    public function formCommande(Request $request, EntityManagerInterface $manager)
+    #[Route("/admin/commande/new/{id}", name:"admin_new_commande")]
+    public function formCommande(Request $request, EntityManagerInterface $manager, VehiculeRepository $repo, $id)
         {
             $commande =new Commande;
+            $vehicule = $repo->find($id);
+            
             $form = $this->createForm(CommandeType::class,$commande);
             //dd($request);
             $form->handleRequest($request);
             
             if($form->isSubmitted() && $form->isValid())
-            {
+            {   
+                $depart = $commande->getDateHeureDepart();
+                $fin = $commande->getDateHeureFin();
+                $interval = $depart->diff($fin);
+                $days = $interval->days;
+                $prix = $vehicule->getPrix();
+                $prixtotal = $prix * $days;
+                $commande->setPrixTotal($prixtotal);
+                $commande->setVehicule($vehicule);
+                $commande->setMembre($this->getUser());
+                $commande->setCreatedAt(new \DateTime);
                 $manager->persist($commande); 
                 $manager->flush();
                 $this->addFlash('success', "Votre commande a bien été enregistré");
     
-                return $this->redirectToRoute('vehicule_show');
+                return $this->redirectToRoute('app_locvoiture');
     
     
             }

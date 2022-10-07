@@ -1,15 +1,19 @@
 {% extends "base.html.twig" %}
 {% block body %}
 
-<h2>Géstion des commande</h2>
+<h2>Reserver votre vehicule</h2>
 
 <div class="container">
 {{ form_start(formCommande)}}
 {# {{form_row(formCommande.id)}} #}
 {{form_row(formCommande.date_heure_depart)}}
 {{form_row(formCommande.date_heure_fin)}}
-{{form_row(formCommande.prix_total)}}
+{# {{form_row(formCommande.prix_total)}} #}
 {# {{form_row(formCommande.vehicule)}} #}
 {# {{form_row(formCommande.membre)}} #}
 </div>
+
+<button type="submit" class="btn btn-success">Envoyer</button>
+
+{{ form_end(formCommande) }}
 {% endblock %}

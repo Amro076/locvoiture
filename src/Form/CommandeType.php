@@ -14,10 +14,9 @@ class CommandeType extends AbstractType
         $builder
             ->add('date_heure_depart')
             ->add('date_heure_fin')
-            ->add('prix_total')
-            //->add('createdAt')
-            // ->add('vehicule')
-            // ->add('membre')
+           
+            
+            
         ;
     }
 

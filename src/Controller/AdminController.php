@@ -104,8 +104,8 @@ class AdminController extends AbstractController
 
         $Commandes =$repo->findAll();
 
-        return $this->render('admin/gestion_membre.html.twig', [
-            'ommandes' => $Commandes,
+        return $this->render('admin/gestion_commande.html.twig', [
+            'commandes' => $Commandes,
             'colonnes' => $colonnes
         ]);
     
