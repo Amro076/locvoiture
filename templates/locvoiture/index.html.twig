@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LocvoitureController!{% endblock %}
+
+{% block body %}
+ <section class="row articles">
+
+
+{% for vehicule in vehicules %}
+    
+
+    
+    <article class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+        <h2>{{ vehicule.titre }}</h2>
+       
+        <div class="metadata">Ajouter le {{ vehicule.createdAt|date('d/m/Y à H:i:s') }} </div>
+   
+        <div class"content">
+        <img class="img-fluid" src="{{ vehicule.photo }}" alt="">
+        
+        <p>Prix journalier {{ vehicule.prix}}€</p>
+
+        <a href="{{ path('vehicule_show', {id: vehicule.id}) }}" class="btn btn-primary">Lire la suite</a>
+    
+        </div>
+        
+    </article>
+{% endfor %}
+</section>
+{% endblock %}

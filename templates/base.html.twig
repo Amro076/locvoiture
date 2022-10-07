@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.1/vapor/bootstrap.min.css" integrity="sha512-iG/zi9IHoosCqa8DqmnfOKZtvrDJsjCm0jEzIpXZ9t/cS/3hgk3tv1LD8zKoPyvZG7rcPxGj0faJ2GXDhGiu7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+  <div class="container-fluid">
+    
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('home') }}">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ path('app_locvoiture') }}">Nos Vehicules
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+       
+       
+       
+      </ul>
+      <form class="d-flex">
+
+        
+       {% if app.user %}
+          {<a class="nav-link btn btn-secondary m-2 my-2 my-sm-0" href="{{ path('app_logout')}}" >Déconnexion</a>
+        {% else %}
+          
+         <a class="nav-link btn btn-secondary m-2 my-2 my-sm-0" href="{{ path('app_login')}}" >connexion</a>
+         <a class="nav-link btn btn-secondary m-2 my-2 my-sm-0" href="{{ path('app_register')}}" >Création de compte</a> 
+        } 
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}  
+        <a href="{{ path('app_admin') }}" class="nav-link btn btn-secondary m-2 my-2 my-sm-0" >BACKOFFICE</a>
+        {% endif %}
+       
+      </form>
+    </div>
+  </div>
+</nav>
+    
+        {% block body %}{% endblock %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.bundle.min.js" integrity="sha512-BOsvKbLb0dB1IVplOL9ptU1EYA+LuCKEluZWRUYG73hxqNBU85JBIBhPGwhQl7O633KtkjMv8lvxZcWP+N3V3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </body>
+</html>

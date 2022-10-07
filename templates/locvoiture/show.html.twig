@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <article class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+   <h1>{{ vehicule.titre}}</h1>
+        <div class="metadata">Ajouter le {{ vehicule.createdAt|date('d/m/Y à H:i:s') }} </div>
+   
+        <div class"content">
+        <img class="img-fluid" src="{{ vehicule.photo }}" alt="">
+        <p>{{ vehicule.description}}</p>
+        <p>Prix journalier {{ vehicule.prix }}€</p>
+
+        <a href="{{ path('admin_new_commande') }}" class="btn btn-primary">Reserver</a>
+
+    </article>
+
+
+
+{% endblock %}

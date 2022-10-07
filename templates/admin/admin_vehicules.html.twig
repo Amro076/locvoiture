@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {# {% for message in app.flashes('success') %}
+
+<div class="alert alert-success text-center">{{ message }}</div>
+
+{% endfor %}
+
+<a href="{{ path('admin_new_article') }}" class="btn btn-success m-2">Ajouter un article</a> #}
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            {% for data in colonnes %}
+               <th>{{ data }}</th> 
+            {% endfor %}
+            
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>   
+    </thead>
+    <tbody>
+        {% for vehicule in vehicules %}
+            <tr>
+                <td>{{ vehicule.id }}</td>
+                <td>{{ vehicule.titre }}</td>
+                <td>{{ vehicule.marque }}</td>
+                <td>{{ vehicule.modele }}</td>
+                <td>{{ vehicule.description|raw }}</td>
+                <td><img src="{{ vehicule.photo }}" style="width: 150px;"  ></td>
+                <td>{{ vehicule.prix }} €</td>
+                <td>{{ vehicule.createdAt|date('d/m/Y à H:i:s') }}</td>
+                
+                <td>
+                    <a   href="{{ path('admin_edit_vehicule', {id: vehicule.id} )}}" class="text-dark3 col-md-6 offset-md-3 btn btn-success"><i class="fas fa-trash">Editer</i></a>
+                </td>
+                <td>
+                    <a onclick="return confirm('Voulez-vous supprimer?')"  href="{{ path('admin_vehicule_delete', {id: vehicule.id} )}}" class="text-dark3 col-md-6 offset-md-3 btn btn-danger">Supprimer<i class="fas fa-trash"></i></a>
+                 </td>
+                 
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+<a class="nav-link btn btn-secondary m-2 my-2 my-sm-0" href="{{ path('admin_new_vehicule')}}" >Ajouter un nouveau vehicule </a>
+
+                
+                
+                
+                
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<table class="table table-dark table-striped">
+  
+    <thead>
+    <th>id</th>
+    <th>Email</th>
+    <th>Role</th>
+    
+    <th>Pseudo</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Civilité</th>
+    <th>Commnde</th>
+    </thead>
+
+    <tbody>
+    {% for membre in membres %}
+        
+    
+    <tr>
+
+    <td>{{ membre.id }}</td>
+    <td>{{ membre.email }}</td>
+    {# <td>{{ membre.role }}</td> #}
+    <td>{{ membre.pseudo }}</td>
+    <td>{{ membre.nom }}</td>
+    <td>{{ membre.prenom }}</td>
+    <td>{{ membre.civilite }}</td>
+    <td>{{ membre.createdAt|date('d/m/Y à H:i:s' ) }}</td>
+    {# <td>{{membre.}}</td> #}
+    
+    </tr>
+
+    {% endfor %}
+    </tbody>
+
+
+</table>
+
+{% endblock %}

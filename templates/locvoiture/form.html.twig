@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  <div class="container mt-5">
+    {{ form_start(formVehicule)}}
+
+      {{ form_row(formVehicule.titre) }}
+      {{ form_row(formVehicule.marque) }}
+      {{ form_row(formVehicule.modele) }}
+      {{ form_row(formVehicule.description) }}
+      {{ form_row(formVehicule.photo) }}
+      {{ form_row(formVehicule.prix) }}
+
+
+
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+    {{ form_end(formVehicule) }}
+  </div>
+{% endblock %}
