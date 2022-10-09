@@ -83,7 +83,7 @@ class LocvoitureController extends AbstractController
         }
         
 
-    #[Route("/admin/commande/new/{id}", name:"admin_new_commande")]
+    #[Route("/commande/new/{id}", name:"new_commande")]
     public function formCommande(Request $request, EntityManagerInterface $manager, VehiculeRepository $repo, $id)
         {
             $commande =new Commande;
@@ -104,6 +104,7 @@ class LocvoitureController extends AbstractController
                 $commande->setPrixTotal($prixtotal);
                 $commande->setVehicule($vehicule);
                 $commande->setMembre($this->getUser());
+                //dd($commande);
                 $commande->setCreatedAt(new \DateTime);
                 $manager->persist($commande); 
                 $manager->flush();

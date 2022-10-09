@@ -13,7 +13,8 @@
     <th>Nom</th>
     <th>Prenom</th>
     <th>Civilité</th>
-    <th>Commnde</th>
+    <th>Date de création</th>
+    <th>Editer</th>
     </thead>
 
     <tbody>
@@ -24,17 +25,21 @@
 
     <td>{{ membre.id }}</td>
     <td>{{ membre.email }}</td>
-    {# <td>{{ membre.role }}</td> #}
+    <td></td>
+     {# <td>{{ membre.roles }}</td>   #}
     <td>{{ membre.pseudo }}</td>
     <td>{{ membre.nom }}</td>
     <td>{{ membre.prenom }}</td>
     <td>{{ membre.civilite }}</td>
     <td>{{ membre.createdAt|date('d/m/Y à H:i:s' ) }}</td>
+    <td> <a class=" btn btn-seccess" href="{{path ('admin_edit_membre', {id: membre.id }) }}">Editer</a> </td>
     {# <td>{{membre.}}</td> #}
     
+    
     </tr>
-
+    
     {% endfor %}
+   
     </tbody>
 
 

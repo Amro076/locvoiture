@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<table class="table">
+  <thead>
+    <thead>
+    <th>Id</th>
+    <th>Vehicule id</th>
+    <th>Membre id</th>
+    
+    <th>Date et heure de depart</th>
+    <th>Date et heure de fin</th>
+    <th>prix total</th>
+  
+    
+    </thead>
+  <tbody>
+    <td>{{commande.id }}</td>
+    <td>{{commande.vehicule.id }} {{commande.vehicule.marque }} {{commande.vehicule.modele }}</td>
+    <td>{{ commande.membre.id }} {{ commande.membre.pseudo }} {{ commande.membre.email }}</td>
+    <td>{{ commande.dateheuredepart | date('d/m/Y à H:i:s' ) }}</td>
+    <td>{{ commande.dateheurefin | date('d/m/Y à H:i:s' ) }}</td>
+    <td>{{ commande.prixtotal }}</td>
+  </tbody>
+</table>
+
+{% endblock %}

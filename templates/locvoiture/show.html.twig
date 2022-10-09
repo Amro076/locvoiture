@@ -11,7 +11,7 @@
         <p>{{ vehicule.description}}</p>
         <p>Prix journalier {{ vehicule.prix }}€</p>
 
-        <a href="{{ path('admin_new_commande',{id: vehicule.id}) }}" class="btn btn-primary">Reserver</a>
+        <a href="{{ path('new_commande',{id: vehicule.id}) }}" class="btn btn-primary">Reserver</a>
 
     </article>
 
